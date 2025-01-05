@@ -2,27 +2,57 @@ import { useState } from 'react';
 import Button from './Button';
 
 export default function FormAddNewItem({ onAddItem }) {
-  const [name, setName] = useState('');
-  const [price, setPrice] = useState('');
-  const [image, setImage] = useState('https://picsum.photos/seed/picsum/48');
+  const initialFormData = {
+    name: '',
+    price: '',
+    image: 'https://picsum.photos/48/48',
+  };
+  const [formData, setFormData] = useState(initialFormData);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (!name || !image || !price) return;
+    const formData = new FormData(e.target);
 
-    const id = crypto.randomUUID();
+    if (
+      !formData.get('name') ||
+      !formData.get('price') ||
+      !formData.get('image')
+    )
+      return;
+
+    if (isNaN(formData.get('price'))) {
+      alert('The price field has to be a number!');
+      setFormData({
+        name: formData.get('name'),
+        price: '',
+        image: formData.get('image'),
+      });
+      return;
+    }
+
+    const randomImageNumber = Math.floor(Math.random() * 100);
     const newItem = {
-      id,
-      name,
-      price,
-      image: `${image}?=${id}`,
+      id: crypto.randomUUID(),
+      name: formData.get('name'),
+      price: Number(formData.get('price')),
+      image: formData.get('image'),
     };
 
     onAddItem(newItem);
-    setName('');
-    setPrice('');
-    setImage('https://picsum.photos/seed/picsum/48');
+
+    setFormData({
+      name: '',
+      price: '',
+      image: `https://picsum.photos/id/${randomImageNumber}/48`,
+    });
   }
 
   return (
@@ -30,22 +60,25 @@ export default function FormAddNewItem({ onAddItem }) {
       <label>Name</label>
       <input
         type='text'
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        name='name'
+        value={formData.name}
+        onChange={handleChange}
       />
 
       <label>Price</label>
       <input
         type='text'
-        value={price}
-        onChange={(e) => setPrice(Number(e.target.value))}
+        name='price'
+        value={formData.price}
+        onChange={handleChange}
       />
 
       <label>Image URL</label>
       <input
         type='text'
-        value={image}
-        onChange={(e) => setImage(e.target.value)}
+        name='image'
+        value={formData.image}
+        onChange={handleChange}
       />
 
       <Button className='button'>Add</Button>

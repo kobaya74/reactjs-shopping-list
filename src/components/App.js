@@ -5,6 +5,8 @@ import FormAddNewItem from './FormAddNewItem';
 import Summary from './Summary';
 import ShoppingListData from './shoppingListData';
 import Action from './Action';
+import ShoppingListItem from './ShoppingListItem';
+import Total from './Total';
 
 export default function App() {
   const [shoppingListItems, setShoppingListItems] = useState(ShoppingListData);
@@ -36,8 +38,14 @@ export default function App() {
   }
 
   function handleReset() {
-    setShoppingListItems([]);
-    setShowAddItem(false);
+    const confirm = window.confirm(
+      'Are you sure you want to remove all items?'
+    );
+
+    if (confirm) {
+      setShoppingListItems([]);
+      setShowAddItem(false);
+    }
   }
 
   return (
@@ -48,11 +56,25 @@ export default function App() {
       <div className='main'>
         {shoppingListItems.length > 0 && (
           <section className='main__content'>
-            <ShoppingList
-              shoppingListItems={shoppingListItems}
-              onDeleteItem={handleDeleteItem}
-              onToggleItem={handleToggleItem}
-            />
+            <ShoppingList shoppingListItems={shoppingListItems}>
+              <ul className='item-list'>
+                {shoppingListItems.map((item) => (
+                  <ShoppingListItem
+                    item={item}
+                    key={item.id}
+                    onDeleteItem={handleDeleteItem}
+                    onToggleItem={handleToggleItem}
+                  />
+                ))}
+              </ul>
+              <b>
+                {shoppingListItems.length > 0 && (
+                  <Total shoppingListItems={shoppingListItems}>
+                    <label>Total: </label>
+                  </Total>
+                )}
+              </b>
+            </ShoppingList>
             <Action
               onReset={handleReset}
               onShowAddItem={handleShowAddItem}
