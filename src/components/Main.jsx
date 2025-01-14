@@ -53,12 +53,13 @@ export default function Main({
         <section className='main__content'>
           <ShoppingList shoppingListItems={shoppingListItems}>
             <ul className='item-list'>
-              {shoppingListItems.map((item) => (
+              {shoppingListItems.map((item, index) => (
                 <ShoppingListItem
                   item={item}
                   key={item.id}
                   onDeleteItem={handleDeleteItem}
                   onToggleItem={handleToggleItem}
+                  index={index}
                 />
               ))}
             </ul>

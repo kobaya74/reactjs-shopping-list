@@ -14,7 +14,7 @@
   --color-heather: #b0bec5;
 
   /* Theme colors */
-  --theme-color-primary: var(--color-fruit-salad);
+  --theme-color-primary: var(--color-japanese-laurel);
   --theme-color-secondary: var(--color-orange-peel);
   --text-color: var(--color-night-rider);
   --page-bg-color: var(--color-solitude);
@@ -24,19 +24,19 @@
   --button-primary-hover-color: var(--button-primary-color);
   --button-primary-bg-color: var(--theme-color-primary);
   --button-primary-bdr: 1px solid var(--button-primary-bg-color);
-  --button-primary-bg-hov-color: var(--color-japanese-laurel);
+  --button-primary-bg-hov-color: var(--color-fruit-salad);
   --button-primary-bdr-hov: 1px solid var(--button-primary-bg-hov-color);
   --button-secondary-color: var(--button-primary-color);
   --button-secondary-hover-color: var(--button-secondary-color);
-  --button-secondary-bg-color: var(--theme-color-secondary);
+  --button-secondary-bg-color: var(--color-mango-tango);
   --button-secondary-bdr: 1px solid var(--button-secondary-bg-color);
-  --button-secondary-bg-hov-color: var(--color-mango-tango);
+  --button-secondary-bg-hov-color: var(--color-orange-peel);
   --button-secondary-bdr-hov: 1px solid var(--button-secondary-bg-hov-color);
   --button-remove-color: var(--color-white);
-  --button-remove-bg-color: var(--color-red-orange);
+  --button-remove-bg-color: var(--color-persian-red);
   --button-remove-bdr: 1px solid var(--button-remove-bg-color);
   --button-remove-hov-color: var(--button-remove-color);
-  --button-remove-bg-hov-color: var(--color-persian-red);
+  --button-remove-bg-hov-color: var(--color-red-orange);
   --button-remove-bdr-hov: 1px solid var(--button-remove-bg-hov-color);
 
   /* Borders */

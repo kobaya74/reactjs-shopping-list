@@ -1,6 +1,11 @@
 import Button from './Button';
 
-export default function ShoppingListItem({ item, onDeleteItem, onToggleItem }) {
+export default function ShoppingListItem({
+  item,
+  onDeleteItem,
+  onToggleItem,
+  index,
+}) {
   return (
     <li className={`item ${item.checked ? 'checked' : ''}`}>
       <img src={item.image} alt={item.name} />
@@ -12,14 +17,24 @@ export default function ShoppingListItem({ item, onDeleteItem, onToggleItem }) {
         </span>
       </span>
       <span className='item-data__action'>
-        <label className="label visually-hidden">Check item to add to cart</label>
+        <label
+          className='label visually-hidden'
+          htmlFor={`checkbox-${index + 1}`}
+        >
+          Check item to add to cart
+        </label>
         <input
           type='checkbox'
           value={item.checked}
           onChange={() => onToggleItem(item.id)}
+          name={`checkbox-${index + 1}`}
+          id={`checkbox-${index + 1}`}
         />
-        <Button className={'button button-remove'} onClick={() => onDeleteItem(item.id)}>
-          <span className="icon">+</span>
+        <Button
+          className={'button button-remove'}
+          onClick={() => onDeleteItem(item.id)}
+        >
+          <span className='icon'>+</span>
         </Button>
       </span>
       {item.checked && <span className='item-checked'>Added to cart</span>}
