@@ -12,13 +12,14 @@ export default function ShoppingListItem({ item, onDeleteItem, onToggleItem }) {
         </span>
       </span>
       <span className='item-data__action'>
+        <label className="label visually-hidden">Check item to add to cart</label>
         <input
           type='checkbox'
           value={item.checked}
           onChange={() => onToggleItem(item.id)}
         />
-        <Button className={'button'} onClick={() => onDeleteItem(item.id)}>
-          ❌
+        <Button className={'button button-remove'} onClick={() => onDeleteItem(item.id)}>
+          <span className="icon">+</span>
         </Button>
       </span>
       {item.checked && <span className='item-checked'>Added to cart</span>}

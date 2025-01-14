@@ -15,7 +15,19 @@ const shoppingListData = [
     id: 434245,
     name: 'Tea',
     price: 3,
+    image: 'https://picsum.photos/id/225/48',
+  },
+  {
+    id: 134745,
+    name: 'Eggs',
+    price: 12,
     image: 'https://picsum.photos/id/365/48',
+  },
+  {
+    id: 132645,
+    name: 'Lemon',
+    price: 6,
+    image: 'https://picsum.photos/id/326/48',
   },
 ];
 

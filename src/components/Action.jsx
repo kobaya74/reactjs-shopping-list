@@ -9,11 +9,16 @@ export default function Action({
   return (
     <div className='action'>
       {shoppingListItems.length > 0 && (
-        <Button className='button' onClick={onReset}>
+        <Button className='button button-primary' onClick={onReset}>
           <span>Reset list</span>
         </Button>
       )}
-      <Button className='button add-to-cart' onClick={onShowAddItem}>
+      <Button
+        className={`button add-to-cart ${
+          !showAddItem ? 'button-primary' : 'button-secondary'
+        }`}
+        onClick={onShowAddItem}
+      >
         <span>{!showAddItem ? 'Add new item' : 'Close form'}</span>
       </Button>
     </div>

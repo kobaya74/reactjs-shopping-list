@@ -63,6 +63,7 @@ export default function FormAddNewItem({ onAddItem }) {
         name='name'
         value={formData.name}
         onChange={handleChange}
+        placeholder='Add item name'
       />
 
       <label>Price</label>
@@ -71,6 +72,7 @@ export default function FormAddNewItem({ onAddItem }) {
         name='price'
         value={formData.price}
         onChange={handleChange}
+        placeholder='Item price e.g. 5'
       />
 
       <label>Image URL</label>
@@ -81,7 +83,7 @@ export default function FormAddNewItem({ onAddItem }) {
         onChange={handleChange}
       />
 
-      <Button className='button'>Add</Button>
+      <Button className='button button-primary'>Add</Button>
     </form>
   );
 }
