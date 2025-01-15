@@ -1,7 +1,7 @@
 import ShoppingList from './ShoppingList';
 import FormAddNewItem from './FormAddNewItem';
 import Summary from './Summary';
-import Action from './Action';
+import Action from './Actions';
 import ShoppingListItem from './ShoppingListItem';
 import Total from './Total';
 

@@ -8,9 +8,10 @@ body {
   background-color: var(--color-white);
   color: var(--text-color);
   font-family: 'Inter', serif;
-  line-height: 1.5;
+  font-size: 1rem;
   font-weight: 400;
   font-synthesis: none;
+  line-height: 1.5;
   margin: 0;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -59,6 +60,7 @@ ul {
   border-radius: 6px;
   box-shadow: none;
   color: var(--button-primary-color);
+  font-size: 1rem;
   font-weight: bold;
   max-width: 150px;
   padding: 0.6rem;
@@ -236,24 +238,53 @@ button + .button.add-to-cart {
   margin: 0;
 }
 
-.action {
+.actions {
   display: flex;
   justify-content: space-between;
 }
 
 .form-add-item {
-  align-items: center;
   background-color: var(--theme-color-secondary);
-  display: grid;
-  gap: 1.2rem;
-  grid-template-columns: 1fr 1.5fr;
   margin-bottom: 1.6rem;
   padding: 0.8rem;
 }
 
+.form-add-item .fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.form-add-item .field {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+
+.form-add-item .field .error {
+  background-color: var(--color-white);
+  border-radius: 3px;
+  color: var(--error-color);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0.2rem 0 0 auto;
+  max-width: 200px;
+  padding: 0 1rem;
+  text-align: center;
+  width: 100%;
+}
+
 .form-add-item label {
+  align-items: center;
+  display: inline-flex;
   font-weight: bold;
   text-align: left;
+}
+
+.form-add-item input {
+  max-width: 200px;
+  width: 100%;
 }
 
 .form-add-item button {

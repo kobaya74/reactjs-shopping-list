@@ -6,6 +6,7 @@
   --color-japanese-laurel: #35823c;
   --color-red-orange: #f44336;
   --color-persian-red: #d32f2f;
+  --color-tomato: #ff5252;
   --color-orange-peel: #ff9800;
   --color-mango-tango: #d98100;
   --color-solitude: #f5f7fa;
@@ -18,6 +19,7 @@
   --theme-color-secondary: var(--color-orange-peel);
   --text-color: var(--color-night-rider);
   --page-bg-color: var(--color-solitude);
+  --error-color: var(--color-tomato);
 
   /* Buttons */
   --button-primary-color: var(--color-white);

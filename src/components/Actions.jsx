@@ -7,7 +7,7 @@ export default function Action({
   showAddItem,
 }) {
   return (
-    <div className='action'>
+    <div className='actions'>
       {shoppingListItems.length > 0 && (
         <Button className='button button-primary' onClick={onReset}>
           <span>Reset list</span>
